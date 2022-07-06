@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blockly-gamepad demo</title>
+  <link rel="icon" href="./img/icon.svg" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/hover-min.css" />
+  <link rel="stylesheet" href="./css/bootstrap.css" />
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css" />
+
+  <!--scripts-->
+  <script src="./libs/blockly/blockly_compressed.js"></script>
+  <script src="./libs/blockly/blocks_compressed.js"></script>
+  <script src="./libs/blockly/javascript_compressed.js"></script>
+  <script src="./libs/blockly/en.js"></script>
+  <script src="./libs/gamepad/gamepad.min.js"></script>
+  <script src="js/levels.js"></script>
+  <script src="js/gui.js"></script>
+  <script src="./js/game.js"></script>
+  <!-- <script src="js/index.js"></script> -->
+</head>
+
+<body>
+  <header id="navbar">
+    <div class="nav">
+      <!-- <div class="logo">
+          <img src="./img/logo.png" alt="" />
+        </div> -->
+      <!-- <button id="jouerbtn" class="btn">
+          Jouer
+        </button> -->
+      <!-- <div class="level">
+          <h1>Niveaux:</h1>
+          <ul>
+            <li>
+              <button
+                class="dot active"
+                id="lvl_1"
+                value="1"
+              >
+                <span></span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="dot"
+                id="lvl_2"
+                value="2"
+              >
+                <span></span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="dot"
+                id="lvl_3"
+                value="3"
+              >
+                <span></span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="dot"
+                id="lvl_4"
+                value="4"
+              >
+                <span></span>
+              </button>
+            </li>
+          </ul>
+        </div> -->
+      <!-- <button id="rejouerbtn" class="btn">
+          Rejouer
+        </button> -->
+    </div>
+  </header>
+  <div class="maincontain">
+    <div class="row gameplt">
+      <div class="col-md-4 column">
+        <div class="gamesec">
+          <div class="games">
+            <!--game 1-->
+            <!-- <div class="gamedetails gmelvl1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  version="1.1"
+                  id="svg3"
+                  viewBox="0 0 400 400"
+                >
+                 -------------------- enemies -------------------------
+                  <image
+                    xlink:href=""
+                    class="maze"
+                    x="0"
+                    y="0"
+                    width="400px"
+                    height="400px"
+                  ></image>
+
+                  <image
+                  xlink:href="./img/kisspng-computer-icon-github-logo.png"
+                  class="maze"
+                  x="301"
+                  y="215"
+                  width="52"
+                  height="24"
+                ></image>
+                  <image
+                    id="finish3"
+                    xlink:href="./img/marker.png"
+                    height="34"
+                    width="20"
+                    x="265"
+                    y="93"
+                  ></image>
+                  <image
+                    xlink:href="./img/kisspng-computer-icon-github-logo.png"
+                    class="maze"
+                    x="301"
+                    y="215"
+                    width="52"
+                    height="24"
+                  ></image>
+                  <clipPath id="pegmanClipPath3">
+                    <rect
+                      id="clipRect3"
+                      width="49"
+                      height="52"
+                      x="51"
+                      y="291"
+                    ></rect>
+                  </clipPath>
+                  <image
+                    id="pegman3"
+                    xlink:href="./img/panda.png"
+                    height="52"
+                    width="1029"
+                    clip-path="url(#pegmanClipPath3)"
+                    x="-145"
+                    y="291"
+                    transform="rotate(0, 0, 0)"
+                  ></image>
+                </svg>
+                <div id="capacity" class="quaote">you have <span id="capacityNumber">7</span> blocks to left</div> 
+              </div>
+
+              game 2
+              <div class="gamedetails gmelvl2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  version="1.1"
+                  id="svg2"
+                  viewBox="0 0 400 400"
+                >
+                  <image
+                    xlink:href=""
+                    class="maze"
+                    x="0"
+                    y="0"
+                    width="400px"
+                    height="400px"
+                  ></image>
+                  -------------------- enemies -------------------------
+                  <image
+                    xlink:href="./img/kisspng-computer-icon-github-logo.png"
+                    class="maze"
+                    x="301"
+                    y="215"
+                    width="52"
+                    height="24"
+                  ></image>
+                  <image
+                    id="finish2"
+                    xlink:href="./img/marker.png"
+                    height="34"
+                    width="20"
+                    x="215"
+                    y="46"
+                  ></image>
+                  <clipPath id="pegmanClipPath2">
+                    <rect
+                      id="clipRect2"
+                      width="49"
+                      height="52"
+                      x="51"
+                      y="291"
+                    ></rect>
+                  </clipPath>
+                  <image
+                    id="pegman2"
+                    xlink:href="./img/pegman.png"
+                    height="52"
+                    width="1029"
+                    clip-path="url(#pegmanClipPath2)"
+                    x="-145"
+                    y="291"
+                    transform="rotate(0, 0, 0)"
+                  ></image>
+                </svg>
+                <div id="capacity" class="quaote">you have <span id="capacityNumber">10</span> blocks to left</div> --
+              </div> -->
+            <!--game 1-->
+            <div class="gamedetails gmelvl1">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svg1" viewBox="0 0 400 400">
+                <image xlink:href="./img/WhatsApp Image 2022-06-23 at 11.58.54.jpeg" class="maze" x="0" width="400px" height="400px" y="-1"></image>
+
+                <!---------------------- enemies ------------------------->
+                <image xlink:href="./img/virus.png " class="maze" x="285" y="210" width="75" height="31"></image>
+                <image xlink:href="./img/virus.png " class="maze" x="285" y="210" width="75" height="31"></image>
+
+                <!-- MARKER -->
+                <image id="finish1" xlink:href="./img/marker.png" height="34" width="20" x="273" y="257"></image>
+
+                <!-- ROBOT -->
+                <clipPath id="pegmanClipPath1">
+                  <rect id="clipRect1" width="49" height="104" x="35" y="191"></rect>
+                </clipPath>
+                <image id="pegman1" xlink:href="./img/panda.png" height="104" width="2058"
+                  clip-path="url(#pegmanClipPath1)" x="-149" y="191" transform="rotate(0, 0, 0)"></image>
+              </svg>
+              <!-- <div id="capacity" class="quaote">you have <span id="capacityNumber">10</span> blocks to left</div> -->
+            </div>
+            <!--game 4-->
+            <div class="gamedetails gmelvl4">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svg3" viewBox="0 0 400 400">
+                <image xlink:href="" class="maze" x="0" y="0" width="400px" height="400px"></image>
+                <!-- <image
+                    id="finish3"
+                    xlink:href="./img/marker.png"
+                    height="34"
+                    width="20"
+                    x="265"
+                    y="93"
+                  ></image>
+                  <image
+                  xlink:href="./img/kisspng-computer-icon-github-logo.png"
+                  class="maze"
+                  x="201"
+                  y="215"
+                  width="52"
+                  height="24"
+                ></image> -->
+
+                <!---------------------- enemies ------------------------->
+                <!-- <image
+                  xlink:href="./img/kisspng-computer-icon-github-logo.png"
+                  class="maze"
+                  x="301"
+                  y="115"
+                  width="52"
+                  height="24"
+                ></image>
+                <image
+                  xlink:href="./img/kisspng-computer-icon-github-logo.png"
+                  class="maze"
+                  x="301"
+                  y="242"
+                  width="52"
+                  height="24"
+                ></image>
+                <image
+                  xlink:href="./img/kisspng-computer-icon-github-logo.png"
+                  class="maze"
+                  x="301"
+                  y="232"
+                  width="52"
+                  height="24"
+                ></image>
+                <image
+                  xlink:href="./img/kisspng-computer-icon-github-logo.png"
+                  class="maze"
+                  x="301"
+                  y="223"
+                  width="52"
+                  height="24"
+                ></image> -->
+                <!-- <clipPath id="pegmanClipPath4">
+                    <rect
+                      id="clipRect4"
+                      width="49"
+                      height="52"
+                      x="51"
+                      y="291"
+                    ></rect>
+                  </clipPath>
+                  <image
+                    id="pegman4"
+                    xlink:href="./img/panda.png"
+                    height="52"
+                    width="1029"
+                    clip-path="url(#pegmanClipPath4)"
+                    x="-145"
+                    y="291"
+                    transform="rotate(0, 0, 0)"
+                  ></image> -->
+              </svg>
+              <!-- <div id="capacity" class="quaote">you have <span id="capacityNumber">7</span> blocks to left</div> -->
+            </div>
+            <!-- game 5 -->
+            <div class="gamedetails gmelvl5">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svg1" viewBox="0 0 400 400">
+                <image xlink:href="./img/lvl5.png" class="maze" x="0" width="400px" height="400px" y="-1"></image>
+
+                <!---------------------- enemies ------------------------->
+                <image xlink:href="./img/virus.png " class="maze" x="288" y="158" width="75" height="31"></image>
+                <image xlink:href="./img/virus.png " class="maze" x="190" y="57" width="75" height="31"></image>
+                <image xlink:href="./img/virus.png " class="maze" x="140" y="255" width="75" height="31"></image>
+
+
+                <!-- MARKER -->
+                <image id="finish5" xlink:href="./img/marker.png" height="34" width="20" x="270" y="160"></image>
+
+                <!-- ROBOT -->
+                <clipPath id="pegmanClipPath5">
+                  <rect id="clipRect5" width="98" height="104" x="35" y="191"></rect>
+                </clipPath>
+                <image id="pegman5" xlink:href="./img/panda.png" height="104" width="2058"
+                  clip-path="url(#pegmanClipPath5)" x="-149" y="191" transform="rotate(0, 0, 0)"></image>
+              </svg>
+              <!-- <div id="capacity" class="quaote">you have <span id="capacityNumber">10</span> blocks to left</div> -->
+            </div>
+          </div>
+          <div class="gamebutton">
+            <button class="hvr-bounce-to-bottom" id="jouerbtn">
+              DÉMARER
+            </button>
+            <button class="hvr-bounce-to-bottom" id="rejouerbtn">
+              RÉNITIALISER
+            </button>
+            <!-- <button class="hvr-bounce-to-bottom" id="algorithm">
+                PROGRAMME
+              </button> -->
+          </div>
+          <div class="gamebutton">
+            <button class="hvr-bounce-to-bottom" id="forward">
+              ÉTAPE
+            </button>
+            <!-- <button class="hvr-bounce-to-bottom" id="backward">
+                  RECULER
+              </button> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 column">
+        <div class="mb-2 mt-2 instr">
+          <img src="./img/instructions.jpeg" alt="">
+        </div>
+        <div class="">
+          <div class="titlenme">
+            <!-- <div>
+                <span>Blocks</span>
+              </div> -->
+            <div>
+              <span>Blocs à utiliser: <span id="CountBlocks">4</span>/<span id="maxblocks">4</span> blocks</span>
+            </div>
+            <div class="tllergt">
+              <div class="btnsec">
+                <!-- <button class="starover">
+                    <i class="bi bi-arrow-counterclockwise"></i> Start Over
+                  </button> -->
+                <button id="algorithm" class="">
+                  <i class="bi bi-code-slash"></i> PROGRAMME
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="docsec">
+            <!-- <div class="doclft">
+                <button>
+                  <svg
+                    width="83"
+                    height="55"
+                    viewBox="0 0 83 55"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M31.1514 1.5H82.5V50.5H31H30.8486L30.7227 50.584L24.8486 54.5H22.1514L16.2774 50.584L16.1514 50.5H16H9C7.01088 50.5 5.10322 49.7098 3.6967 48.3033C2.29018 46.8968 1.5 44.9891 1.5 43V9C1.5 7.01088 2.29018 5.10322 3.6967 3.6967C5.10322 2.29018 7.01088 1.5 9 1.5H15.8486L21.7227 5.41603L21.8486 5.5H22H25H25.1514L25.2773 5.41603L31.1514 1.5Z"
+                      fill="#006A71"
+                      id="path"
+                    />
+                    <path
+                      d="M30.1514 0.5H81.5V49.5H30H29.8486L29.7227 49.584L23.8486 53.5H21.1514L15.2774 49.584L15.1514 49.5H15H8C6.01088 49.5 4.10322 48.7098 2.6967 47.3033C1.29018 45.8968 0.5 43.9891 0.5 42V8C0.5 6.01088 1.29018 4.10322 2.6967 2.6967C4.10322 1.29018 6.01088 0.5 8 0.5H14.8486L20.7227 4.41603L20.8486 4.5H21H24H24.1514L24.2773 4.41603L30.1514 0.5Z"
+                      fill="#207FA5"
+                      id="path"
+                    />
+                    <path
+                      d="M18.0881 9.27273V18H16.2983L12.8253 12.9631H12.7699V18H10.6605V9.27273H12.4759L15.9105 14.3011H15.983V9.27273H18.0881Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M53.5 6.39001L34.39 25.5H72.61L53.5 6.39001Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M45.856 25.5H61.144V44.61H45.856V25.5Z"
+                      fill="white"
+                    />
+                  </svg>
+                </button>
+                <button>
+                  <svg
+                    width="83"
+                    height="55"
+                    viewBox="0 0 83 55"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1 9C1 6.87827 1.84285 4.84344 3.34315 3.34315C4.84344 1.84285 6.87827 1 9 1L16 1L22 5H25L31 1H83V51H31L25 55H22L16 51H9C6.87827 51 4.84344 50.1571 3.34315 48.6569C1.84285 47.1566 1 45.1217 1 43V9Z"
+                      fill="#006A71"
+                      id="path"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0L15 0L21 4H24L30 0H82V50H30L24 54H21L15 50H8C5.87827 50 3.84344 49.1571 2.34315 47.6569C0.842855 46.1566 0 44.1217 0 42V8Z"
+                      fill="#207FA5"
+                      id="path"
+                    />
+                    <path
+                      d="M53.2678 46.6086L72.6086 27.7323L34.3914 27.2678L53.2678 46.6086Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M61.1435 27.593L45.8566 27.4071L46.0889 8.29856L61.3757 8.48437L61.1435 27.593Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M15.3778 11.8892C15.3494 11.5767 15.223 11.3338 14.9986 11.1605C14.777 10.9844 14.4602 10.8963 14.0483 10.8963C13.7756 10.8963 13.5483 10.9318 13.3665 11.0028C13.1847 11.0739 13.0483 11.1719 12.9574 11.2969C12.8665 11.419 12.8196 11.5597 12.8168 11.7188C12.8111 11.8494 12.8366 11.9645 12.8935 12.0639C12.9531 12.1634 13.0384 12.2514 13.1491 12.3281C13.2628 12.402 13.3991 12.4673 13.5582 12.5241C13.7173 12.581 13.8963 12.6307 14.0952 12.6733L14.8452 12.8438C15.277 12.9375 15.6577 13.0625 15.9872 13.2188C16.3196 13.375 16.598 13.5611 16.8224 13.777C17.0497 13.9929 17.2216 14.2415 17.3381 14.5227C17.4545 14.804 17.5142 15.1193 17.517 15.4688C17.5142 16.0199 17.375 16.4929 17.0994 16.8878C16.8239 17.2827 16.4276 17.5852 15.9105 17.7955C15.3963 18.0057 14.7756 18.1108 14.0483 18.1108C13.3182 18.1108 12.6818 18.0014 12.1392 17.7827C11.5966 17.5639 11.1747 17.2315 10.8736 16.7855C10.5724 16.3395 10.4176 15.7756 10.4091 15.0938H12.429C12.446 15.375 12.5213 15.6094 12.6548 15.7969C12.7884 15.9844 12.9716 16.1264 13.2045 16.223C13.4403 16.3196 13.7131 16.3679 14.0227 16.3679C14.3068 16.3679 14.5483 16.3295 14.7472 16.2528C14.9489 16.1761 15.1037 16.0696 15.2116 15.9332C15.3196 15.7969 15.375 15.6406 15.3778 15.4645C15.375 15.2997 15.3239 15.1591 15.2244 15.0426C15.125 14.9233 14.9716 14.821 14.7642 14.7358C14.5597 14.6477 14.2983 14.5668 13.9801 14.4929L13.0682 14.2798C12.3125 14.1065 11.7173 13.8267 11.2827 13.4403C10.848 13.0511 10.6321 12.5256 10.6349 11.8636C10.6321 11.3239 10.777 10.8509 11.0696 10.4446C11.3622 10.0384 11.767 9.72159 12.2841 9.49432C12.8011 9.26705 13.3906 9.15341 14.0526 9.15341C14.7287 9.15341 15.3153 9.26847 15.8125 9.49858C16.3125 9.72585 16.7003 10.0455 16.9759 10.4574C17.2514 10.8693 17.392 11.3466 17.3977 11.8892H15.3778Z"
+                      fill="white"
+                    />
+                  </svg>
+                </button>
+  
+                <button>
+                  <svg
+                    width="83"
+                    height="55"
+                    viewBox="0 0 83 55"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1 9C1 6.87827 1.84285 4.84344 3.34315 3.34315C4.84344 1.84285 6.87827 1 9 1L16 1L22 5H25L31 1H83V51H31L25 55H22L16 51H9C6.87827 51 4.84344 50.1571 3.34315 48.6569C1.84285 47.1566 1 45.1217 1 43V9Z"
+                      fill="#006A71"
+                      id="path"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0L15 0L21 4H24L30 0H82V50H30L24 54H21L15 50H8C5.87827 50 3.84344 49.1571 2.34315 47.6569C0.842855 46.1566 0 44.1217 0 42V8Z"
+                      fill="#207FA5"
+                      id="path"
+                    />
+                    <g clip-path="url(#clip0_1_153)">
+                      <path
+                        d="M72.066 24.736L52.736 5.84857L53.1786 44.066L72.066 24.736Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M52.8688 17.3138L53.0459 32.6008L33.9371 32.8221L33.7601 17.5351L52.8688 17.3138Z"
+                        fill="white"
+                      />
+                    </g>
+                    <path
+                      d="M10.6605 18V9.27273H16.7457V10.9858H12.7699V12.7756H16.4347V14.4929H12.7699V16.2869H16.7457V18H10.6605Z"
+                      fill="white"
+                    />
+                    <defs>
+                      <clipPath id="clip0_1_153">
+                        <rect
+                          width="39"
+                          height="39"
+                          fill="white"
+                          transform="translate(33.9256 44.9146) rotate(-91.3599)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+  
+                <button>
+                  <svg
+                    width="83"
+                    height="55"
+                    viewBox="0 0 83 55"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1 9C1 6.87827 1.84285 4.84344 3.34315 3.34315C4.84344 1.84285 6.87827 1 9 1L16 1L22 5H25L31 1H83V51H31L25 55H22L16 51H9C6.87827 51 4.84344 50.1571 3.34315 48.6569C1.84285 47.1566 1 45.1217 1 43V9Z"
+                      fill="#006A71"
+                      id="path"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0L15 0L21 4H24L30 0H82V50H30L24 54H21L15 50H8C5.87827 50 3.84344 49.1571 2.34315 47.6569C0.842855 46.1566 0 44.1217 0 42V8Z"
+                      fill="#207FA5"
+                      id="path"
+                    />
+                    <g clip-path="url(#clip0_1_159)">
+                      <path
+                        d="M34.4227 24.6948L53.2683 44.0655L53.7934 5.84913L34.4227 24.6948Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M53.4258 32.6006L53.6359 17.314L72.7441 17.5766L72.534 32.8631L53.4258 32.6006Z"
+                        fill="white"
+                      />
+                    </g>
+                    <path
+                      d="M12.7528 18L10.2131 9.27273H12.544L13.8608 14.9915H13.9332L15.4375 9.27273H17.3381L18.8423 15.0043H18.9148L20.2358 9.27273H22.5625L20.027 18H17.9943L16.4219 12.7074H16.3537L14.7812 18H12.7528Z"
+                      fill="white"
+                    />
+                    <defs>
+                      <clipPath id="clip0_1_159">
+                        <rect
+                          width="39"
+                          height="39"
+                          fill="white"
+                          transform="translate(73.0618 5.48822) rotate(90.0908)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+              </div> -->
+            <div id="midlExpends" class="midleft">
+              <div id="blocklyDiv" style="position:absolute; height:100%;"></div>
+              <xml id="toolbox" style="display: none">
+                <block type="move"></block>
+                <block type="turn"></block>
+                <block type="turn">
+                  <field name="DIRECTION">3</field>
+                </block>
+                <block type="energie"></block>
+                <block type="repeat_until"></block>
+                <block type="if_path"></block>
+                <block type="if_else_path"></block>
+              </xml>
+              <!--toolbox whit categories-->
+              <xml id="toolbox_c" style="display: none">
+                <category name="Controls" colour="285">
+                  <block type="move"></block>
+                  <block type="turn"></block>
+                  <block type="turn">
+                    <field name="DIRECTION">3</field>
+                  </block>
+                </category>
+                <category name="Logic" colour="120">
+                  <block type="repeat_until"></block>
+                  <block type="if_path"></block>
+                  <block type="if_else_path"></block>
+                </category>
+              </xml>
+              <!-- <svg
+                  width="121"
+                  height="41"
+                  viewBox="0 0 121 41"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0L119.783 0V36H30L24 40H21L15 36H8C5.87827 36 3.84344 35.1571 2.34315 33.6569C0.842855 32.1566 0 30.1217 0 28V8Z"
+                    fill="#DC3545"
+                  />
+                  <path
+                    d="M11.3544 23L9.22372 14.8182H11.8391L12.9418 20.0597H13.011L14.1935 14.8182H16.745L17.9595 20.0224H18.0288L19.0994 14.8182H21.7148L19.5788 23H16.793L15.5146 18.2326H15.424L14.1456 23H11.3544ZM25.365 18.3338V23H22.7602V12.0909H25.2797V16.3203H25.3703C25.555 15.8161 25.8568 15.4219 26.2758 15.1378C26.6984 14.8537 27.2151 14.7116 27.8259 14.7116C28.4012 14.7116 28.9019 14.8395 29.328 15.0952C29.7542 15.3473 30.0844 15.7042 30.3188 16.1658C30.5567 16.6275 30.6739 17.1673 30.6704 17.7852V23H28.0656V18.2965C28.0692 17.842 27.9555 17.4869 27.7247 17.2312C27.4939 16.9755 27.1689 16.8477 26.7499 16.8477C26.4765 16.8477 26.235 16.908 26.0255 17.0288C25.8195 17.146 25.6579 17.3146 25.5407 17.5348C25.4271 17.755 25.3685 18.0213 25.365 18.3338ZM36.1209 23.1545C35.2651 23.1545 34.5265 22.9858 33.905 22.6484C33.2871 22.3075 32.8113 21.8228 32.4775 21.1942C32.1472 20.5621 31.9821 19.8111 31.9821 18.9411C31.9821 18.0959 32.149 17.3572 32.4828 16.7251C32.8166 16.0895 33.2871 15.5959 33.8944 15.2443C34.5016 14.8892 35.2172 14.7116 36.041 14.7116C36.6234 14.7116 37.1561 14.8022 37.639 14.9833C38.122 15.1644 38.5392 15.4325 38.8908 15.7876C39.2424 16.1428 39.5158 16.5813 39.7111 17.1033C39.9064 17.6218 40.0041 18.2166 40.0041 18.8878V19.5376H32.8929V18.0249H37.5804C37.5769 17.7479 37.5112 17.5011 37.3833 17.2844C37.2555 17.0678 37.0797 16.8991 36.856 16.7784C36.6358 16.6541 36.3819 16.592 36.0943 16.592C35.8031 16.592 35.5421 16.6577 35.3113 16.7891C35.0804 16.9169 34.8975 17.0927 34.7626 17.3164C34.6277 17.5366 34.5566 17.7869 34.5495 18.0675V19.6069C34.5495 19.9407 34.6152 20.2337 34.7466 20.4858C34.878 20.7344 35.0645 20.9279 35.3059 21.0664C35.5474 21.2049 35.835 21.2741 36.1689 21.2741C36.3997 21.2741 36.6092 21.2422 36.7974 21.1783C36.9856 21.1143 37.1472 21.0202 37.2821 20.896C37.4171 20.7717 37.5183 20.619 37.5858 20.4379L39.9775 20.5071C39.878 21.0433 39.6596 21.5103 39.3223 21.908C38.9885 22.3022 38.5499 22.6094 38.0066 22.8295C37.4632 23.0462 36.8347 23.1545 36.1209 23.1545ZM43.9392 18.3338V23H41.3344V14.8182H43.8113V16.3203H43.9019C44.083 15.8196 44.392 15.4272 44.8287 15.1431C45.2655 14.8555 45.7858 14.7116 46.3895 14.7116C46.9648 14.7116 47.4637 14.8413 47.8863 15.1005C48.3124 15.3562 48.6427 15.7148 48.877 16.1765C49.115 16.6346 49.2322 17.1708 49.2286 17.7852V23H46.6238V18.2965C46.6274 17.842 46.512 17.4869 46.2776 17.2312C46.0468 16.9755 45.7254 16.8477 45.3135 16.8477C45.04 16.8477 44.7986 16.908 44.589 17.0288C44.3831 17.146 44.2233 17.3146 44.1096 17.5348C43.9996 17.755 43.9427 18.0213 43.9392 18.3338ZM54.0639 23V14.8182H56.5941V16.3097H56.6793C56.8285 15.7699 57.0717 15.3686 57.4091 15.1058C57.7464 14.8395 58.1388 14.7063 58.5863 14.7063C58.707 14.7063 58.8313 14.7152 58.9592 14.733C59.087 14.7472 59.206 14.7702 59.3161 14.8022V17.0661C59.1918 17.0234 59.0284 16.9897 58.826 16.9648C58.6271 16.94 58.4496 16.9276 58.2933 16.9276C57.9844 16.9276 57.7056 16.9968 57.457 17.1353C57.212 17.2702 57.0185 17.4602 56.8764 17.7053C56.7379 17.9467 56.6687 18.2308 56.6687 18.5575V23H54.0639ZM65.6562 19.4684V14.8182H68.2556V23H65.7733V21.4766H65.6881C65.507 21.9773 65.1981 22.375 64.7613 22.6697C64.328 22.9609 63.8042 23.1065 63.1899 23.1065C62.6324 23.1065 62.1423 22.9787 61.7197 22.723C61.2971 22.4673 60.9687 22.1104 60.7343 21.6523C60.4999 21.1907 60.3809 20.6509 60.3774 20.033V14.8182H62.9822V19.5217C62.9857 19.9656 63.1029 20.3153 63.3337 20.571C63.5645 20.8267 63.8788 20.9545 64.2765 20.9545C64.5358 20.9545 64.7684 20.8977 64.9743 20.7841C65.1839 20.6669 65.349 20.4982 65.4697 20.2781C65.594 20.0543 65.6562 19.7844 65.6562 19.4684ZM72.5183 18.3338V23H69.9135V14.8182H72.3904V16.3203H72.481C72.6621 15.8196 72.9711 15.4272 73.4078 15.1431C73.8446 14.8555 74.3649 14.7116 74.9686 14.7116C75.5439 14.7116 76.0428 14.8413 76.4654 15.1005C76.8915 15.3562 77.2218 15.7148 77.4561 16.1765C77.6941 16.6346 77.8113 17.1708 77.8077 17.7852V23H75.2029V18.2965C75.2065 17.842 75.0911 17.4869 74.8567 17.2312C74.6259 16.9755 74.3045 16.8477 73.8926 16.8477C73.6191 16.8477 73.3777 16.908 73.1681 17.0288C72.9622 17.146 72.8024 17.3146 72.6887 17.5348C72.5787 17.755 72.5218 18.0213 72.5183 18.3338Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M104.285 17.4969L84.2913 29.6219L83.7874 6.24467L104.285 17.4969Z"
+                    fill="#D9D9D9"
+                  />
+                </svg> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./js/script.js"></script>
+
+
+  <!--remaining block-->
+  <script>
+    // update remaining block
+    // Blockly.getMainWorkspace().addChangeListener(() => {
+    //     // let capacity = Blockly.getMainWorkspace().remainingCapacity()
+    //     // if (capacity != Infinity) {
+    //     //     // show capacity div
+    //     //     document.getElementById('capacity').style.display = 'block'
+    //     //     document.getElementById('capacityNumber').innerHTML = capacity
+    //     // } else {
+    //     //     // hide capacity div
+    //     //     document.getElementById('capacity').style.display = 'none'
+    //     // }
+    //     game.countPress = 0;
+    // }) 
+    // var dots = document.getElementsByClassName("dot");
+    // activeDot(dots[0], dots)
+    // function activeDot(element, listElements){
+
+    //   for(var i=0;i< dots.length; i++){
+    //     listElements[i].classList.remove("active");
+    //     listElements[i].innerHTML = "";
+    //   }
+    //   element.classList.add("active");
+    //   element.innerHTML = element.value;
+    // }
+
+    // clickEvent = (e)=> activeDot(e.target, dots)
+
+
+
+    // document.getElementById('lvl_1').onclick = clickEvent
+    // document.getElementById('lvl_2').onclick = clickEvent
+    // document.getElementById('lvl_3').onclick = clickEvent
+    function myFunction() {
+      // if (window.pageYOffset >= sticky) {
+      //   navbar.classList.add("active")
+      // } else {
+      //   navbar.classList.remove("sticky");
+      // }
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
+      navbar.classList.add("active");
+    }
+  </script>
+</body>
+
+</html>
